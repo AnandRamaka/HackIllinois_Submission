@@ -1,9 +1,11 @@
 import "./App.css";
+import Logo2 from "./logo2.png";
 import Card from "./components/Card.js";
 import React, { Component, useEffect, useState } from "react";
 import { Container, Row, Col } from "react-grid-system";
 import ParticlesBg from "particles-bg";
-import "./components/scrollbar.css";
+import "./scrollbar.css";
+import { Nav, Navbar } from "react-bootstrap";
 
 function App() {
   const [cardData, setCardData] = useState([]);
@@ -29,7 +31,6 @@ function App() {
         }
       })
       .then((res2) => {
-        //console.log(res2)
         var cards_dict = [];
         var data = res2.data;
         for (var obj of data) {
@@ -40,7 +41,6 @@ function App() {
           });
         }
         setCardData(cards_dict);
-        //console.log(cardData)
       })
       .catch(function (res) {
         console.log("Error detected");
@@ -51,7 +51,6 @@ function App() {
   itemList = [" ", " ", " ", " ", " ", " ", " ", " "];
 
   if (cardData.length > 0) {
-    //card = <Card name={cardData[0].name} description={cardData[0].description} photo={cardData[0].pic}  />
     itemList = cardData.map((item) => (
       <Col sm={3}>
         <ul>
@@ -68,11 +67,19 @@ function App() {
 
   return (
     <>
-      <div class="myApp" style={{ marginTop: "5%" }}>
+      <div class="myApp" >
+       
+      <Navbar  bg="light" style={{padding:"1%"}}>
+        <Nav className="container-fluid">
+          <Nav.Item>
+            <img src={Logo2} style={{ borderRadius:"30px",  position:"relative", width:"25%", height:"25%"}}  />
+          </Nav.Item>
+        </Nav>
+      </Navbar>
         <ParticlesBg type="square" bg={true} style={{ height: "100%" }} />
-        <h1> Mentors </h1>
+        <h1 style={{ marginTop: "2.5%" }} > Mentors </h1>
         <header>
-          <div style={{ width: "100%", marginTop: "5%" }}>
+          <div style={{ width: "100%", marginTop: "2%" }}>
             <div
               className="scrollbar scrollbar-juicy-peach"
               style={{

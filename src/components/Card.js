@@ -3,18 +3,6 @@ import { Modal } from "react-bootstrap";
 import "./Card.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const customStyles = {
-  content: {
-    width: "50%",
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)"
-  }
-};
-
 function Card(props) {
   console.log(props.name);
   let img = props.photo;
@@ -29,11 +17,10 @@ function Card(props) {
       <div style={{}}>
         <div>
           <h1 class style={{ fontSize: "22px" }}>
-            {" "}
-            {props.name}{" "}
+            {props.name}
           </h1>
           <img
-            class="myImg"
+            class="profile"
             src={img}
             onClick={handleShow}
             style={{
